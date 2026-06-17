@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Google AI Studio App</title>
+  </head>
+  <body>
+    <div id="error-log" style="color: red; position: fixed; top: 0; left: 0; z-index: 9999; background: white; padding: 10px; display: none;"></div>
+    <script>
+      window.addEventListener('error', function(e) {
+        var el = document.getElementById('error-log');
+        el.style.display = 'block';
+        el.innerHTML += e.message + '<br>';
+      });
+      window.addEventListener('unhandledrejection', function(e) {
+        var el = document.getElementById('error-log');
+        el.style.display = 'block';
+        el.innerHTML += e.reason + '<br>';
+      });
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

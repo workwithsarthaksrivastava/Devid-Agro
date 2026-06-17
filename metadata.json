@@ -1,0 +1,6 @@
+{
+  "name": "DeVid Agro Fresh",
+  "description": "Premium corporate website for DeVid Agro Fresh, a modern farm-to-market sourcing and distribution company.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
