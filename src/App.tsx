@@ -4,22 +4,21 @@
  */
 
 import { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Lenis from 'lenis';
 import { CustomCursor } from './components/CustomCursor';
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { About } from './components/About';
-import { Founders } from './components/Founders';
-import { Products } from './components/Products';
-import { Services } from './components/Services';
-import { WhyChooseUs } from './components/WhyChooseUs';
-import { BusinessFlow } from './components/BusinessFlow';
-import { ScrollStorytelling } from './components/ScrollStorytelling';
-import { Clients } from './components/Clients';
-import { CTA } from './components/CTA';
 import { Footer } from './components/Footer';
 
+import { Home } from './pages/Home';
+import { Contact } from './pages/Contact';
+
+import { PrivacyPolicy } from './pages/PrivacyPolicy';
+import { TermsAndConditions } from './pages/TermsAndConditions';
+
 export default function App() {
+  const location = useLocation();
+
   useEffect(() => {
     const lenis = new Lenis({
       autoRaf: true,
@@ -32,20 +31,21 @@ export default function App() {
     };
   }, []);
 
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   return (
     <main className="w-full min-h-screen bg-background-soft">
       <CustomCursor />
       <Navbar />
-      <Hero />
-      <About />
-      <Founders />
-      <Products />
-      <Services />
-      <WhyChooseUs />
-      <BusinessFlow />
-      <ScrollStorytelling />
-      <Clients />
-      <CTA />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+      </Routes>
       <Footer />
     </main>
   );

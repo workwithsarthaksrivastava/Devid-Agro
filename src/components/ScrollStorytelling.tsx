@@ -1,15 +1,15 @@
 import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import React, { useRef } from "react";
 // Since we have limited real photos, we will use Unsplash for these specific scenes to maintain ultra-high quality.
 const SCENES = [
   {
     title: "Freshness Begins at the Source",
-    image: "https://images.unsplash.com/photo-1596752003848-1db259fcfbd4?q=80&w=1600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1600&auto=format&fit=crop",
     subtitle: "Farm"
   },
   {
     title: "Direct Farmer & Mandi Sourcing",
-    image: "https://images.unsplash.com/photo-1530737191196-1634b8c0dfeb?q=80&w=1600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1533900298318-6b8da08a523e?q=80&w=1600&auto=format&fit=crop",
     subtitle: "Procurement"
   },
   {
@@ -40,6 +40,7 @@ function SceneComponent({
   totalScenes, 
   scrollYProgress 
 }: { 
+  key?: React.Key,
   scene: any, 
   idx: number, 
   totalScenes: number, 

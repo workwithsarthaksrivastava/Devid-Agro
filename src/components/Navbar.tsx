@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import { cn } from "../lib/utils";
 
 const NAV_LINKS = [
@@ -10,6 +11,8 @@ const NAV_LINKS = [
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,7 +35,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto w-full px-6 lg:px-20 flex items-center justify-between">
         
         {/* Logo */}
-        <div className="flex items-center gap-2 cursor-pointer relative group">
+        <Link to="/" className="flex items-center gap-2 cursor-pointer relative group">
           <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center overflow-hidden">
             <div className="w-4 h-4 bg-white rounded-full translate-x-1 -translate-y-1 group-hover:scale-150 transition-transform duration-500" />
             <div className="w-6 h-6 border-2 border-white rounded-full absolute -bottom-2 -left-2" />
@@ -40,31 +43,44 @@ export function Navbar() {
           <span className="font-heading font-extrabold text-xl tracking-tight text-text-dark">
             DEVID AGRO
           </span>
-        </div>
+        </Link>
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-8">
-          {NAV_LINKS.map((link) => (
-            <a 
-              key={link} 
-              href={`#${link.toLowerCase().replace(' ', '-')}`}
-              className="text-sm font-medium text-text-dark/80 hover:text-primary transition-colors relative group"
-            >
-              {link}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-            </a>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const anchor = link.toLowerCase().replace(' ', '-');
+            const href = isHomePage ? `#${anchor}` : `/#${anchor}`;
+            return (
+              <a 
+                key={link} 
+                href={href}
+                className="text-sm font-medium text-text-dark/80 hover:text-primary transition-colors relative group"
+              >
+                {link}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+              </a>
+            );
+          })}
+          <Link
+            to="/contact"
+            className="text-sm font-medium text-text-dark/80 hover:text-primary transition-colors relative group"
+          >
+            Queries
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+          </Link>
         </div>
 
         {/* Action Button */}
         <div className="hidden lg:block">
-          <motion.button 
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-text-dark text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-primary transition-colors duration-300 shadow-md"
-          >
-            Contact
-          </motion.button>
+          <Link to="/contact">
+            <motion.button 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-text-dark text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-primary transition-colors duration-300 shadow-md"
+            >
+              Contact
+            </motion.button>
+          </Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -84,19 +100,25 @@ export function Navbar() {
           animate={{ opacity: 1, height: 'auto' }}
           className="absolute top-[90px] left-0 w-full bg-white shadow-xl lg:hidden flex flex-col px-6 py-4"
         >
-          {NAV_LINKS.map((link) => (
-            <a 
-              key={link} 
-              href={`#${link.toLowerCase().replace(' ', '-')}`}
-              onClick={() => setIsOpen(false)}
-              className="py-3 text-lg font-medium border-b border-gray-100 text-text-dark"
-            >
-              {link}
-            </a>
-          ))}
-          <button className="mt-6 bg-primary text-white w-full py-4 rounded-xl font-semibold">
-            Contact
-          </button>
+          {NAV_LINKS.map((link) => {
+            const anchor = link.toLowerCase().replace(' ', '-');
+            const href = isHomePage ? `#${anchor}` : `/#${anchor}`;
+            return (
+              <a 
+                key={link} 
+                href={href}
+                onClick={() => setIsOpen(false)}
+                className="py-3 text-lg font-medium border-b border-gray-100 text-text-dark"
+              >
+                {link}
+              </a>
+            );
+          })}
+          <Link to="/contact" onClick={() => setIsOpen(false)}>
+            <button className="mt-6 bg-primary text-white w-full py-4 rounded-xl font-semibold">
+              Contact / Queries
+            </button>
+          </Link>
         </motion.div>
       )}
     </motion.nav>

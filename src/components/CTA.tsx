@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { MoveRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import warehouseImage from "../assets/images/warehouse_produce_1781689188026.jpg";
 
 export function CTA() {
@@ -25,16 +26,18 @@ export function CTA() {
           Ready to Partner With Bihar's Trusted Fresh Produce Supplier?
         </motion.h2>
         
-        <motion.button 
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="bg-primary hover:bg-primary-light text-white px-10 py-5 rounded-full font-bold text-lg inline-flex items-center gap-3 transition-colors shadow-[0_0_40px_rgba(46,125,50,0.4)]"
-        >
-          Request Partnership <MoveRight className="w-5 h-5" />
-        </motion.button>
+        <Link to="/contact">
+          <motion.button 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-primary hover:bg-primary-light text-white px-10 py-5 rounded-full font-bold text-lg inline-flex items-center gap-3 transition-colors shadow-[0_0_40px_rgba(46,125,50,0.4)]"
+          >
+            Request Partnership <MoveRight className="w-5 h-5" />
+          </motion.button>
+        </Link>
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { MoveRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroFruitsImage from '../assets/images/hero_fruits_1781689123894.jpg';
 
 export function Hero() {
@@ -69,21 +70,25 @@ export function Hero() {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
             className="flex flex-wrap items-center gap-4 mt-4"
           >
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-primary text-white px-8 py-4 rounded-full font-semibold flex items-center gap-2 hover:bg-primary/90 transition-colors shadow-lg shadow-primary/30"
-            >
-              Explore Products
-              <MoveRight className="w-5 h-5" />
-            </motion.button>
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white text-primary px-8 py-4 rounded-full font-semibold hover:bg-gray-50 transition-colors shadow-md border border-gray-100"
-            >
-              Contact Us
-            </motion.button>
+            <a href="#products">
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-primary text-white px-8 py-4 rounded-full font-semibold flex items-center gap-2 hover:bg-primary/90 transition-colors shadow-lg shadow-primary/30"
+              >
+                Explore Products
+                <MoveRight className="w-5 h-5" />
+              </motion.button>
+            </a>
+            <Link to="/contact">
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-white text-primary px-8 py-4 rounded-full font-semibold hover:bg-gray-50 transition-colors shadow-md border border-gray-100"
+              >
+                Contact Us
+              </motion.button>
+            </Link>
           </motion.div>
         </div>
 

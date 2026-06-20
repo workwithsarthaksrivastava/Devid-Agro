@@ -3,7 +3,7 @@ import { User } from "lucide-react";
 
 const FOUNDERS = [
   {
-    name: "Devansh Shrivastava",
+    name: "Devansh Kumar",
     role: "Procurement & Supply Chain",
     responsibilities: [
       "Farmer Network Development",
