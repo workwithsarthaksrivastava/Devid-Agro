@@ -3,18 +3,18 @@ import garlicImage from "../assets/images/fresh_garlic_1783511433877.jpg";
 import greenChilliImage from "../assets/images/green_chilli_1783511450202.jpg";
 
 const PRODUCTS = [
-  { name: "Potato", category: "Vegetables", image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?q=80&w=800&auto=format&fit=crop" },
-  { name: "Onion", category: "Vegetables", image: "https://images.unsplash.com/photo-1620574387735-3624d75b2dbc?q=80&w=800&auto=format&fit=crop" },
-  { name: "Tomato", category: "Vegetables", image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?q=80&w=800&auto=format&fit=crop" },
-  { name: "Garlic", category: "Vegetables", image: garlicImage },
-  { name: "Green Chilli", category: "Vegetables", image: greenChilliImage },
-  { name: "Leafy Vegetables", category: "Vegetables", image: "https://images.unsplash.com/photo-1564834724105-918b73d1b9e0?q=80&w=800&auto=format&fit=crop" },
-  { name: "Banana", category: "Fruits", image: "https://images.unsplash.com/photo-1528825871115-3581a5387919?q=80&w=800&auto=format&fit=crop" },
-  { name: "Apple", category: "Fruits", image: "https://images.unsplash.com/photo-1561136594-7f68413baa99?q=80&w=800&auto=format&fit=crop" },
-  { name: "Grapes", category: "Fruits", image: "https://images.unsplash.com/photo-1537640538966-79f369143f8f?q=80&w=800&auto=format&fit=crop" },
-  { name: "Mango", category: "Fruits", image: "https://images.unsplash.com/photo-1553279768-865429fa0078?q=80&w=800&auto=format&fit=crop" },
-  { name: "Pineapple", category: "Fruits", image: "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?q=80&w=800&auto=format&fit=crop" },
-  { name: "Watermelon", category: "Fruits", image: "https://images.unsplash.com/photo-1589984662646-e7b2e4962f18?q=80&w=800&auto=format&fit=crop" },
+  { name: "Potato", category: "Vegetables", description: "High-quality, graded potatoes perfect for bulk retail and culinary processing.", image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?q=80&w=800&auto=format&fit=crop" },
+  { name: "Onion", category: "Vegetables", description: "Crisp, well-dried onions sourced directly from local farms for extended shelf life.", image: "https://images.unsplash.com/photo-1620574387735-3624d75b2dbc?q=80&w=800&auto=format&fit=crop" },
+  { name: "Tomato", category: "Vegetables", description: "Fresh, farm-ripened tomatoes carefully packed to prevent damage during transit.", image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?q=80&w=800&auto=format&fit=crop" },
+  { name: "Garlic", category: "Vegetables", description: "Aromatic, premium white garlic bulbs carefully selected for robust flavor.", image: garlicImage },
+  { name: "Green Chilli", category: "Vegetables", description: "Vibrant, spicy green chillies hand-picked daily for maximum freshness.", image: greenChilliImage },
+  { name: "Leafy Vegetables", category: "Vegetables", description: "Crisp, nutrient-rich greens harvested early morning for peak vitality.", image: "https://images.unsplash.com/photo-1564834724105-918b73d1b9e0?q=80&w=800&auto=format&fit=crop" },
+  { name: "Banana", category: "Fruits", description: "Naturally ripened, premium bananas available in bulk for wholesale markets.", image: "https://images.unsplash.com/photo-1528825871115-3581a5387919?q=80&w=800&auto=format&fit=crop" },
+  { name: "Apple", category: "Fruits", description: "Crisp and juicy apples, carefully graded and sorted for exceptional quality.", image: "https://images.unsplash.com/photo-1561136594-7f68413baa99?q=80&w=800&auto=format&fit=crop" },
+  { name: "Grapes", category: "Fruits", description: "Sweet, fresh grapes handled with care to maintain their perfect bloom.", image: "https://images.unsplash.com/photo-1537640538966-79f369143f8f?q=80&w=800&auto=format&fit=crop" },
+  { name: "Mango", category: "Fruits", description: "Seasonal, hand-picked mangoes known for their rich sweetness and aroma.", image: "https://images.unsplash.com/photo-1553279768-865429fa0078?q=80&w=800&auto=format&fit=crop" },
+  { name: "Pineapple", category: "Fruits", description: "Tropical, sweet pineapples harvested at optimal ripeness.", image: "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?q=80&w=800&auto=format&fit=crop" },
+  { name: "Watermelon", category: "Fruits", description: "Refreshing, sweet watermelons perfect for seasonal summer demands.", image: "https://images.unsplash.com/photo-1589984662646-e7b2e4962f18?q=80&w=800&auto=format&fit=crop" },
 ];
 
 export function Products() {
@@ -79,7 +79,7 @@ export function Products() {
                 {/* Reveal on hover */}
                 <div className="h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 group-hover:mt-3 transition-all duration-300">
                   <p className="text-white/80 text-sm line-clamp-2">
-                    Locally sourced, premium quality {product.name.toLowerCase()} ensuring maximum freshness.
+                    {product.description}
                   </p>
                 </div>
               </div>
