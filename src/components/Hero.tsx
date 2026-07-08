@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import { MoveRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -23,7 +23,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[100svh] w-full flex items-center justify-center bg-white/50 px-6 lg:px-20 overflow-x-hidden pt-28 lg:pt-0">
+    <section className="relative min-h-[100svh] w-full flex flex-col bg-white/50 px-6 lg:px-20 overflow-x-hidden pt-32 lg:pt-48 pb-20">
       {/* Background Animated Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <motion.div 
@@ -39,10 +39,10 @@ export function Hero() {
         <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-background-soft to-transparent z-10" />
       </div>
 
-      <div className="relative z-20 max-w-7xl mx-auto w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-8 h-full pt-10 pb-16 lg:py-0">
+      <div className="relative z-20 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-8 flex-1 my-auto">
         
         {/* Left Content */}
-        <div className="w-full lg:w-[45%] flex flex-col justify-center gap-6 lg:gap-8">
+        <div className="w-full flex flex-col justify-center gap-6 lg:gap-8 mt-12 lg:mt-0">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -111,26 +111,28 @@ export function Hero() {
         </div>
 
         {/* Right Content - Hero Slideshow */}
-        <div className="w-full lg:w-[55%] h-[50vh] min-h-[400px] lg:h-full lg:min-h-[600px] relative flex items-center justify-center p-4 lg:p-8">
+        <div className="w-full h-[350px] sm:h-[400px] lg:h-[500px] relative flex items-center justify-center lg:mt-0">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
-            className="w-full h-full max-h-[600px] relative z-20 flex items-center justify-center rounded-[2rem] overflow-hidden shadow-2xl"
+            className="w-full h-full relative z-20 flex items-center justify-center rounded-[2rem] overflow-hidden shadow-2xl"
           >
-            <AnimatePresence>
+            {HERO_IMAGES.map((img, index) => (
               <motion.img 
-                key={currentImageIndex}
-                initial={{ opacity: 0, scale: 1.05 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0 }}
+                key={img}
+                initial={false}
+                animate={{ 
+                  opacity: currentImageIndex === index ? 1 : 0,
+                  scale: currentImageIndex === index ? 1 : 1.05
+                }}
                 transition={{ duration: 1.2, ease: "easeInOut" }}
-                src={HERO_IMAGES[currentImageIndex]}
+                src={img}
                 alt="Devid Agro Fresh Produce" 
                 className="absolute inset-0 w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
-            </AnimatePresence>
+            ))}
             <div className="absolute inset-0 border-2 border-white/10 rounded-[2rem] pointer-events-none z-30"></div>
           </motion.div>
         </div>

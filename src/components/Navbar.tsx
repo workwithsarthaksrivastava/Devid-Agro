@@ -36,8 +36,8 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto w-full px-6 lg:px-20 flex items-center justify-between">
         
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 cursor-pointer relative group">
-          <img src={logo} alt="DeVid Agro Fresh Logo" className="h-16 w-auto object-contain" />
+        <Link to="/" className="flex items-center gap-2 cursor-pointer relative group z-[60]">
+          <img src={logo} alt="DeVid Agro Fresh Logo" className="h-14 lg:h-16 w-auto object-contain mix-blend-multiply" />
         </Link>
 
         {/* Desktop Menu */}
