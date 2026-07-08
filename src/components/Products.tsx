@@ -1,11 +1,13 @@
 import { motion } from "motion/react";
+import garlicImage from "../assets/images/fresh_garlic_1783511433877.jpg";
+import greenChilliImage from "../assets/images/green_chilli_1783511450202.jpg";
 
 const PRODUCTS = [
   { name: "Potato", category: "Vegetables", image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?q=80&w=800&auto=format&fit=crop" },
   { name: "Onion", category: "Vegetables", image: "https://images.unsplash.com/photo-1620574387735-3624d75b2dbc?q=80&w=800&auto=format&fit=crop" },
   { name: "Tomato", category: "Vegetables", image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?q=80&w=800&auto=format&fit=crop" },
-  { name: "Garlic", category: "Vegetables", image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=800&auto=format&fit=crop" },
-  { name: "Green Chilli", category: "Vegetables", image: "https://images.unsplash.com/photo-1598514982205-f36b96d1e8d4?q=80&w=800&auto=format&fit=crop" },
+  { name: "Garlic", category: "Vegetables", image: garlicImage },
+  { name: "Green Chilli", category: "Vegetables", image: greenChilliImage },
   { name: "Leafy Vegetables", category: "Vegetables", image: "https://images.unsplash.com/photo-1564834724105-918b73d1b9e0?q=80&w=800&auto=format&fit=crop" },
   { name: "Banana", category: "Fruits", image: "https://images.unsplash.com/photo-1528825871115-3581a5387919?q=80&w=800&auto=format&fit=crop" },
   { name: "Apple", category: "Fruits", image: "https://images.unsplash.com/photo-1561136594-7f68413baa99?q=80&w=800&auto=format&fit=crop" },
