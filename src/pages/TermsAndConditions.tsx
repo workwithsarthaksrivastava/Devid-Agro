@@ -1,10 +1,17 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 export function TermsAndConditions() {
   return (
     <div className="pt-32 pb-20 px-6 max-w-4xl mx-auto">
+      <Helmet>
+        <title>Terms & Conditions | DeVid Agro Fresh</title>
+        <meta name="description" content="Read the official terms and conditions governing the use of DeVid Agro Fresh products, wholesale services, and supply chain supply operations." />
+        <meta name="keywords" content="DeVid Agro terms and conditions, business terms, produce supply service conditions" />
+        <meta name="robots" content="noindex, follow" />
+      </Helmet>
       <Link to="/" className="inline-flex items-center gap-2 text-primary hover:text-primary-light font-medium mb-8 transition-colors">
         <ArrowLeft className="w-5 h-5" />
         Back to Home

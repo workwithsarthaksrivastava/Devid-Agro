@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import React, { useState } from "react";
 import { Phone, Mail, MapPin, Send } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -32,6 +33,14 @@ export function Contact() {
 
   return (
     <div className="pt-32 pb-20 px-6 max-w-7xl mx-auto">
+      <Helmet>
+        <title>Contact DeVid Agro Fresh | Partner With Us & Get a Sourcing Quote</title>
+        <meta name="description" content="Reach out to DeVid Agro Fresh for bulk produce sourcing inquiries, logistics partnerships, or business queries. Fill out our form to get a custom quote sent directly via WhatsApp." />
+        <meta name="keywords" content="Contact DeVid Agro, bulk quote fresh produce, fresh fruits wholesale query, fresh vegetables sourcing Bihar, DeVid Agro WhatsApp contact" />
+        <meta property="og:title" content="Contact DeVid Agro Fresh | Partner With Us" />
+        <meta property="og:description" content="Get custom quotes and establish supply chain partnerships for premium fruits & vegetables sourced directly from Bihar." />
+        <meta property="og:image" content="/android-chrome-512x512.png" />
+      </Helmet>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}

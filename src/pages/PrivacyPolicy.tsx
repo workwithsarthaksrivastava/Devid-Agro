@@ -1,10 +1,17 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 export function PrivacyPolicy() {
   return (
     <div className="pt-32 pb-20 px-6 max-w-4xl mx-auto">
+      <Helmet>
+        <title>Privacy Policy | DeVid Agro Fresh</title>
+        <meta name="description" content="Learn about the privacy practices and data protection compliance of DeVid Agro Fresh, in adherence with internationally recognized security and privacy standards (ISO/IEC 27001 and ISO/IEC 27701)." />
+        <meta name="keywords" content="DeVid Agro privacy policy, data protection, ISO 27001, ISO 27701 compliant, privacy practices" />
+        <meta name="robots" content="noindex, follow" />
+      </Helmet>
       <Link to="/" className="inline-flex items-center gap-2 text-primary hover:text-primary-light font-medium mb-8 transition-colors">
         <ArrowLeft className="w-5 h-5" />
         Back to Home

@@ -6,6 +6,7 @@
 import { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Lenis from 'lenis';
+import { HelmetProvider } from 'react-helmet-async';
 import { CustomCursor } from './components/CustomCursor';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -37,17 +38,19 @@ export default function App() {
   }, [location.pathname]);
 
   return (
-    <main className="w-full min-h-screen bg-background-soft">
-      <CustomCursor />
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-      </Routes>
-      <Footer />
-    </main>
+    <HelmetProvider>
+      <main className="w-full min-h-screen bg-background-soft">
+        <CustomCursor />
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+        </Routes>
+        <Footer />
+      </main>
+    </HelmetProvider>
   );
 }
 
