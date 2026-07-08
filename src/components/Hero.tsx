@@ -23,7 +23,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-white/50 px-6 lg:px-20 overflow-x-hidden">
+    <section className="relative min-h-[100svh] w-full flex items-center justify-center bg-white/50 px-6 lg:px-20 overflow-x-hidden pt-28 lg:pt-0">
       {/* Background Animated Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <motion.div 
@@ -39,7 +39,7 @@ export function Hero() {
         <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-background-soft to-transparent z-10" />
       </div>
 
-      <div className="relative z-20 max-w-7xl mx-auto w-full flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-8 h-full pt-20 pb-10">
+      <div className="relative z-20 max-w-7xl mx-auto w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-8 h-full pt-10 pb-16 lg:py-0">
         
         {/* Left Content */}
         <div className="w-full lg:w-[45%] flex flex-col justify-center gap-6 lg:gap-8">
@@ -111,7 +111,7 @@ export function Hero() {
         </div>
 
         {/* Right Content - Hero Slideshow */}
-        <div className="w-full lg:w-[55%] h-[40vh] lg:h-full relative flex items-center justify-center p-4 lg:p-8">
+        <div className="w-full lg:w-[55%] h-[50vh] min-h-[400px] lg:h-full lg:min-h-[600px] relative flex items-center justify-center p-4 lg:p-8">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
