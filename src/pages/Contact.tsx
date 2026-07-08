@@ -70,16 +70,6 @@ export function Contact() {
 
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
-                <Phone className="text-primary w-6 h-6" />
-              </div>
-              <div>
-                <h4 className="font-bold text-text-dark">Phone</h4>
-                <p className="text-text-muted">+91 8076664037<br/>+91 9199322495</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
                 <Mail className="text-primary w-6 h-6" />
               </div>
               <div>

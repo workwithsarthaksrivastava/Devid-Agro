@@ -1,5 +1,6 @@
 import { MapPin, Mail, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
+import logo from "../assets/images/logo.png";
 
 export function Footer() {
   return (
@@ -10,12 +11,7 @@ export function Footer() {
           {/* Col 1: Brand */}
           <div>
             <div className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-                <div className="w-3 h-3 bg-white rounded-full translate-x-0.5 -translate-y-0.5" />
-              </div>
-              <span className="font-heading font-extrabold text-xl tracking-tight">
-                DEVID AGRO
-              </span>
+              <img src={logo} alt="DeVid Agro Fresh Logo" className="h-16 w-auto object-contain bg-white rounded-xl p-1" />
             </div>
             <p className="text-white/60 leading-relaxed font-medium">
               From Farm to Market, Freshness You Can Trust. Premium sourcing and distribution across Bihar.
@@ -55,15 +51,6 @@ export function Footer() {
               <li className="flex items-center gap-4">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0" />
                 <a href="mailto:devidagrofresh@gmail.com" className="hover:text-white transition-colors">devidagrofresh@gmail.com</a>
-              </li>
-              <li className="flex flex-col gap-2">
-                <div className="flex items-center gap-4">
-                  <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                  <a href="tel:+918076664037" className="hover:text-white transition-colors">+91 8076664037</a>
-                </div>
-                <div className="flex items-center gap-4 pl-9">
-                  <a href="tel:+919199322495" className="hover:text-white transition-colors">+91 9199322495</a>
-                </div>
               </li>
             </ul>
           </div>

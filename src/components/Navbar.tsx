@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "../lib/utils";
+import logo from "../assets/images/logo.png";
 
 const NAV_LINKS = [
   "Home", "About", "Products", "Services", "Why Us", "Business Flow", "Clients"
@@ -36,13 +37,7 @@ export function Navbar() {
         
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 cursor-pointer relative group">
-          <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center overflow-hidden">
-            <div className="w-4 h-4 bg-white rounded-full translate-x-1 -translate-y-1 group-hover:scale-150 transition-transform duration-500" />
-            <div className="w-6 h-6 border-2 border-white rounded-full absolute -bottom-2 -left-2" />
-          </div>
-          <span className="font-heading font-extrabold text-xl tracking-tight text-text-dark">
-            DEVID AGRO
-          </span>
+          <img src={logo} alt="DeVid Agro Fresh Logo" className="h-16 w-auto object-contain" />
         </Link>
 
         {/* Desktop Menu */}

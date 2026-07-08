@@ -1,9 +1,27 @@
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { MoveRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroFruitsImage from '../assets/images/hero_fruits_1781689123894.jpg';
+import { useState, useEffect } from "react";
+
+const HERO_IMAGES = [
+  "https://images.unsplash.com/photo-1610832958506-aa56368176cf?q=80&w=1600&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1600&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1518843875459-f738682238a6?q=80&w=1600&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1557844352-761f2565b576?q=80&w=1600&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1488459716781-31db52582fe9?q=80&w=1600&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1573246123716-6b1782bfc499?q=80&w=1600&auto=format&fit=crop"
+];
 
 export function Hero() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-white/50 px-6 lg:px-20 overflow-x-hidden">
       {/* Background Animated Elements */}
@@ -92,23 +110,28 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Right Content - Hero Image */}
-        <div className="w-full lg:w-[55%] h-[40vh] lg:h-full relative flex items-center justify-center">
+        {/* Right Content - Hero Slideshow */}
+        <div className="w-full lg:w-[55%] h-[40vh] lg:h-full relative flex items-center justify-center p-4 lg:p-8">
           <motion.div
-            initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
-            className="w-full h-full max-h-[600px] relative z-20 flex items-center justify-center"
+            className="w-full h-full max-h-[600px] relative z-20 flex items-center justify-center rounded-[2rem] overflow-hidden shadow-2xl"
           >
-             <motion.img 
-                animate={{ y: [0, -15, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                src={heroFruitsImage}
-                alt="Premium fresh fruits composition" 
-                className="w-full h-full object-contain mix-blend-multiply drop-shadow-2xl opacity-90"
-                style={{ filter: 'contrast(1.1) brightness(1.05)' }}
+            <AnimatePresence>
+              <motion.img 
+                key={currentImageIndex}
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1.2, ease: "easeInOut" }}
+                src={HERO_IMAGES[currentImageIndex]}
+                alt="Devid Agro Fresh Produce" 
+                className="absolute inset-0 w-full h-full object-cover"
                 referrerPolicy="no-referrer"
-             />
+              />
+            </AnimatePresence>
+            <div className="absolute inset-0 border-2 border-white/10 rounded-[2rem] pointer-events-none z-30"></div>
           </motion.div>
         </div>
       </div>

@@ -73,7 +73,6 @@ export function TermsAndConditions() {
               <p>Bilash Bhawan, Rashulpur Zilani</p>
               <p>Majhauliya Road, Muzaffarpur Bihar 842001</p>
               <p>Email: devidagrofresh@gmail.com</p>
-              <p>Phone: +91 8076664037 / +91 9199322495</p>
             </div>
           </section>
         </div>
